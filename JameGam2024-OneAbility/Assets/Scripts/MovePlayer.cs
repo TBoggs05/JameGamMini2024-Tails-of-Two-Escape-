@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
 
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private float jumpTime;
     private Rigidbody2D rbody;
     private SpriteRenderer spriteRenderer;
