@@ -6,7 +6,7 @@ public class Swap : MonoBehaviour
 {
     public GameObject player;
 
-    public bool IsBean;
+   
 
 
     
@@ -16,8 +16,15 @@ public class Swap : MonoBehaviour
         {
         if (collider.gameObject == player)
         {
-            IsBean = !IsBean;
+            player.GetComponent<GameController>().IsBean = !player.GetComponent<GameController>().IsBean;
             Debug.Log("Swapped!");
+
+            // stop movement
+            //animation
+            // change sprite
+            // change active script
+            // end animation
+            // return moving
         }
         }
 
