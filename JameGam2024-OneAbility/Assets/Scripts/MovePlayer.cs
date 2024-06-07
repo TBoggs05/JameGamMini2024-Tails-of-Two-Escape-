@@ -9,6 +9,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpTime;
     private Rigidbody2D rbody;
+    private SpriteRenderer spriteRenderer;
 
     private float jumpPressure;
     private float minJump;
@@ -21,6 +22,7 @@ public class MovePlayer : MonoBehaviour
         speed = 5f;
         rbody = GetComponent<Rigidbody2D>();
         maxJumpPressure = 10f;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -83,11 +85,13 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             gameObject.transform.Translate(Vector3.left * Time.deltaTime * speed);
+            spriteRenderer.flipX = true;
         }
         //Move Right
         if (Input.GetKey(KeyCode.D))
         {
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * speed);
+            spriteRenderer.flipX = false;
         }
     }
   
