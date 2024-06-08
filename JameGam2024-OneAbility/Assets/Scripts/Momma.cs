@@ -24,19 +24,21 @@ public class Momma : MonoBehaviour
             {
                 bashReady = false;
                 StartCoroutine(bashTimer());
+                rb.drag = 10f;
                 float tempSpeed = GetComponent<MovePlayer>().speed;
                 GetComponent <MovePlayer>().speed = 0;
                 Debug.Log("MOMMA-BASH!");
                 if (GetComponent<MovePlayer>().movingRight)
                 {
-                    bashForce = new Vector2(8f, 0);
+                    bashForce = new Vector2(32f, 0);
                 }
                 else
                 {
-                    bashForce = new Vector2(-8f, 0);
+                    bashForce = new Vector2(-32f, 0);
                 }
                 rb.AddForce(bashForce, ForceMode2D.Impulse);
                 GetComponent<MovePlayer>().speed = tempSpeed;
+                
             }
             else
             {
@@ -53,5 +55,6 @@ public class Momma : MonoBehaviour
             timer--;
         }
         bashReady = true;
+        rb.drag = 0f;
     }
 }

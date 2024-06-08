@@ -116,7 +116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8270043962574102051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.15122372}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8769735}
   m_EdgeRadius: 0
 --- !u!114 &2410239610755837937
 MonoBehaviour:
@@ -176,11 +176,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   jumpTime: 0
-  boxSize: {x: 0, y: 0}
-  castDistance: 0
+  boxSize: {x: 0.9, y: 0.11}
+  castDistance: 0.3
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   movingRight: 0
 --- !u!114 &3781677091548369197
 MonoBehaviour:
@@ -196,8 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsBean: 0
   spriteRenderer: {fileID: 0}
-  mommaSprite: {fileID: 0}
-  beanSprite: {fileID: 0}
+  mommaSprite: {fileID: -2413806693520163455, guid: f49f693cdc3515d41a8e14fb2d75d446, type: 3}
+  beanSprite: {fileID: 7482667652216324306, guid: 88f074281bf612846ab40511ff85c07d, type: 3}
   rb: {fileID: 0}
 --- !u!114 &8576488093465380007
 MonoBehaviour:
@@ -212,11 +212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpTime: 0
-  wallBoxSize: {x: 0, y: 0}
-  castDistance: 0
+  wallBoxSize: {x: 1.12, y: 0.9}
+  castDistance: -0.13
   wallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   isWallSliding: 0
   wallSlidingSpeed: 2
   wallCheck: {fileID: 0}
@@ -238,3 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fb6917a5df293418fdb12f7a963562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  bashForce: {x: 0, y: 0}
+  bashReady: 0
