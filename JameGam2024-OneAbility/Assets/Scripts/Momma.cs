@@ -13,6 +13,7 @@ public class Momma : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2.0f;
         bashReady = true;
+        gameObject.transform.localScale = new Vector3(3f, 3f, 3f);
     }
 
     // Update is called once per frame

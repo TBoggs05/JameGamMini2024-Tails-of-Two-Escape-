@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     public static GameController instance;
     public short lives;
+    public GameObject player;
     void Awake()
     {
         if (instance == null)
@@ -27,38 +28,21 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
+        
         //initially start as bean.
         lives = 9;
         IsBean = true;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        GetComponent<Momma>().enabled = false;
-        GetComponent<Bean>().enabled = true;
-        rb = GetComponent<Rigidbody2D>(); 
     }
 
 
-    public void swapCat()
+    public void swapCat(GameObject p)
     {
+        GetComponent<CameraController>().ChangeTarget(p);
         //flag checker
+        player = p;
         IsBean = !IsBean;
-        if (IsBean)
-        {
-            //change sprite
-            spriteRenderer.sprite = beanSprite;
-            //set bean script to active and momma script to not active.
-            GetComponent<Momma>().enabled = false;
-            GetComponent<Bean>().enabled = true;
-            rb.gravityScale = 1.0f;
-        }
-        else
-        {
-            //change sprite
-            spriteRenderer.sprite = mommaSprite;
-            //set momma script to active and bean script to not active.
-            GetComponent<Momma>().enabled = true;
-            GetComponent<Bean>().enabled = false;
-            rb.gravityScale = 2.0f;
-        }
+        
+        
     }
     public void takeDamage()
     {

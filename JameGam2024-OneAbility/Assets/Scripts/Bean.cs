@@ -26,6 +26,7 @@ public class Bean : MonoBehaviour
     [SerializeField] private float wallJumpingCounter;
     [SerializeField] private float wallJumpingDuration;
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    [SerializeField] private float horizontalCastOffset;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class Bean : MonoBehaviour
         maxWallJumpPressure = 10f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         wallJumpingCounter = 0;
+        gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
     void Update(){
         WallSlide();
@@ -94,7 +96,7 @@ public class Bean : MonoBehaviour
     //checks ground for jumping
     bool checkWall()
     {
-        if (Physics2D.BoxCast(transform.position, wallBoxSize, 0, -transform.up, castDistance, wallLayer))
+        if (Physics2D.BoxCast(transform.position - new Vector3(horizontalCastOffset, 0f, 0f), wallBoxSize, 0, -transform.up, castDistance, wallLayer))
             return true;
         else
             return false;
@@ -102,7 +104,7 @@ public class Bean : MonoBehaviour
     //draws jumping hitbox
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, wallBoxSize);
+        Gizmos.DrawWireCube((transform.position - transform.up * castDistance) - new Vector3(horizontalCastOffset, 0f, 0f), wallBoxSize);
     }
     private bool IsGrounded()
     {

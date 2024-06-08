@@ -16,6 +16,7 @@ public class MovePlayer : MonoBehaviour
     private float maxJumpPressure;
     public Vector2 boxSize;
     public float castDistance;
+    public float horizontalCastOffset;
     public LayerMask groundLayer;
     public bool movingRight;
     private float horizontal;
@@ -71,7 +72,7 @@ public class MovePlayer : MonoBehaviour
     //checks ground for jumping
    public bool checkGround()
     {
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        if (Physics2D.BoxCast(transform.position - new Vector3(horizontalCastOffset,0f,0f), boxSize, 0, -transform.up, castDistance, groundLayer))
             return true;
         else
             return false;
@@ -79,7 +80,7 @@ public class MovePlayer : MonoBehaviour
     //draws jumping hitbox
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
+        Gizmos.DrawWireCube((transform.position - transform.up * castDistance) - new Vector3(horizontalCastOffset, 0f, 0f), boxSize);
     }
     //moving code
     public void checkMove()
@@ -90,7 +91,8 @@ public class MovePlayer : MonoBehaviour
             // Vector3 m_Input = Vector3.left;
               gameObject.transform.Translate(Vector3.left * Time.deltaTime * speed);
             //rbody.MovePosition(transform.position + m_Input * Time.deltaTime * speed);
-            spriteRenderer.flipX = true;
+            // spriteRenderer.flipX = true;
+            flipCharacter();
             movingRight = false;
         }
         //Move Right
@@ -99,8 +101,35 @@ public class MovePlayer : MonoBehaviour
             // Vector3 m_Input = Vector3.right;
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * speed);
             // rbody.MovePosition(-transform.position + m_Input * Time.deltaTime * -speed);
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            flipCharacter();
             movingRight = true;
+        }
+    }
+    public void flipCharacter()
+    {
+        if (movingRight)
+        {
+            if(gameObject.name == "BeanPlayer" || gameObject.name == "BeanPlayer(Clone)")
+            {
+                transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(3f, 3f, 3f);
+            }
+
+        }
+        else
+        {
+            if (gameObject.name == "BeanPlayer" || gameObject.name == "BeanPlayer(Clone)")
+            {
+                transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-3f, 3f, 3f);
+            }
         }
     }
 }
