@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Sprite beanSprite;
     [SerializeField] private Rigidbody2D rb;
     public static GameController instance;
+    public short lives;
     void Awake()
     {
         if (instance == null)
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         //initially start as bean.
+        lives = 9;
         IsBean = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<Momma>().enabled = false;
@@ -56,6 +58,17 @@ public class GameController : MonoBehaviour
             GetComponent<Momma>().enabled = true;
             GetComponent<Bean>().enabled = false;
             rb.gravityScale = 2.0f;
+        }
+    }
+    public void takeDamage()
+    {
+        if(lives-1 <= 0)
+        {
+            //loseCase
+        }
+        else
+        {
+            lives--;
         }
     }
 }
