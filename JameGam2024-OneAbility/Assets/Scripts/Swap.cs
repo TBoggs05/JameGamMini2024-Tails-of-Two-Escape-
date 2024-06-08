@@ -6,11 +6,6 @@ public class Swap : MonoBehaviour
 {
     public GameObject player;
 
-   
-
-
-    
-
 
         private void OnTriggerEnter2D(Collider2D collider)
         {

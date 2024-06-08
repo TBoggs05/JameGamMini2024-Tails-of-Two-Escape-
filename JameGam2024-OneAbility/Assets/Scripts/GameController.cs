@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite mommaSprite;
     [SerializeField] private Sprite beanSprite;
-
+    [SerializeField] private Rigidbody2D rb;
     public static GameController instance;
     void Awake()
     {
@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<Momma>().enabled = false;
         GetComponent<Bean>().enabled = true;
+        rb = GetComponent<Rigidbody2D>(); 
     }
 
 
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
             //set bean script to active and momma script to not active.
             GetComponent<Momma>().enabled = false;
             GetComponent<Bean>().enabled = true;
+            rb.gravityScale = 1.0f;
         }
         else
         {
@@ -53,6 +55,7 @@ public class GameController : MonoBehaviour
             //set momma script to active and bean script to not active.
             GetComponent<Momma>().enabled = true;
             GetComponent<Bean>().enabled = false;
+            rb.gravityScale = 2.0f;
         }
     }
 }
