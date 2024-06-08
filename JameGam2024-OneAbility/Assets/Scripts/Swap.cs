@@ -6,33 +6,31 @@ public class Swap : MonoBehaviour
 {
     public GameObject player;
 
-   
-
-
-    
-
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
         if (collider.gameObject == player)
         {
-            player.GetComponent<GameController>().IsBean = !player.GetComponent<GameController>().IsBean;
             Debug.Log("Swapped!");
-
-            // stop movement
-            //animation
-            // change sprite
-            // change active script
-            // end animation
-            // return moving
+            StartCoroutine(swapSequence());
         }
         }
+    IEnumerator swapSequence()
+    {
 
+        float originalSpeed = player.GetComponent<MovePlayer>().speed;// store OG movement speed
+        player.GetComponent<MovePlayer>().speed = 0; // stop movement
+        //Start animation(maybe yield waitforseconds to ensure animation starts) TODO
 
-    // Add functionality to stop moving, play animation then continue moving
+        player.GetComponent<GameController>().swapCat();// change sprite + change active script.
+        /*
+         * while(animation != finished){
+         * yield return null
+         * }
+         */
+        // end animation
 
-
-
-
-
+        player.GetComponent<MovePlayer>().speed = originalSpeed;// return moving
+        yield return null; //TEMP TO STOP ERROR!
+    }
 }
