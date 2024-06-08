@@ -45,7 +45,7 @@ public class Bean : MonoBehaviour
             if (isWallSliding)
             {
                 //holding jump butotn
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.W) || Input.GetKey("space"))
                 {
                     Debug.Log("Queueing up wall jump!");
                     if (wallJumpPressure < maxWallJumpPressure)
@@ -59,7 +59,7 @@ public class Bean : MonoBehaviour
                     }
                 }
                 //not holding jump button
-                else if(Input.GetKeyUp(KeyCode.W))
+                else if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp("space"))
                 {
                     //jump since no longer holding button and jump pressure exists
                     if (wallJumpPressure > 0f)

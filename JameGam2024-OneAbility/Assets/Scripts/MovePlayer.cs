@@ -37,7 +37,7 @@ public class MovePlayer : MonoBehaviour
             if (checkGround())
             {
                 //holding jump butotn
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.W) || Input.GetKey("space"))
                 {
                     if (jumpPressure < maxJumpPressure)
                     {
