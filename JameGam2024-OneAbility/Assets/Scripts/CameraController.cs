@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
         {
             Vector3 desiredPosition = target.position + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.fixedDeltaTime);
-            transform.position = desiredPosition;
+            transform.position = smoothedPosition;
 
             transform.LookAt(target);
         }
@@ -22,11 +22,5 @@ public class CameraController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-    }
-
-    public void ChangeTarget(GameObject p)
-    {
-        player = p;
-        target = p.transform;
     }
 }

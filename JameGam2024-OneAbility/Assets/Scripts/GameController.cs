@@ -34,15 +34,12 @@ public class GameController : MonoBehaviour
         IsBean = true;
     }
 
-
+    //BROKEN
     public void swapCat(GameObject p)
     {
-        GetComponent<CameraController>().ChangeTarget(p);
         //flag checker
         player = p;
         IsBean = !IsBean;
-        
-        
     }
     public void takeDamage()
     {

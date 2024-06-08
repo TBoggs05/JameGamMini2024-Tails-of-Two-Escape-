@@ -9,10 +9,14 @@ public class Swap : MonoBehaviour
     public GameObject camera;
     public GameObject beanPrefab;
     public GameObject mommaPrefab;
-
+    public Sprite mommaCard;
+    public Sprite beanCard;
+    private SpriteRenderer cardRenderer;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        cardRenderer = GetComponent<SpriteRenderer>();
+        checkCard();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -41,9 +45,10 @@ public class Swap : MonoBehaviour
             Destroy(player);
             //make new cat as p
             player = Instantiate(mommaPrefab, tempPos, Quaternion.identity);
-            camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
+            //   camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
 
-            
+            //set card to Bean Card
+            cardRenderer.sprite = beanCard;
 
         }
         else
@@ -52,9 +57,12 @@ public class Swap : MonoBehaviour
             Vector3 tempPos = player.transform.position;
             Destroy(player);
             //make new cat as p
+            //public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
             player = Instantiate(beanPrefab, tempPos, Quaternion.identity);
-            camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
+            //camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
 
+            //set card to Momma Card
+            cardRenderer.sprite = mommaCard;
 
         }
         
@@ -77,5 +85,17 @@ public class Swap : MonoBehaviour
             timer--;
         }
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+    void checkCard()
+    {
+        if (player.name == "BeanPlayer" || player.name == "BeanPlayer(Clone)")
+        {
+
+            cardRenderer.sprite = mommaCard;
+        }
+        else
+        {
+            cardRenderer.sprite = beanCard;
+        }
     }
 }

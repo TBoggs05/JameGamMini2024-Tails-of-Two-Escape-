@@ -13,7 +13,7 @@ public class Momma : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2.0f;
         bashReady = true;
-        gameObject.transform.localScale = new Vector3(3f, 3f, 3f);
+        gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class Momma : MonoBehaviour
     }
     IEnumerator bashTimer()
     {
-        int timer = 4;
+        int timer = 2;
         while(timer > 0)
         {
             yield return new WaitForSeconds(1f);
