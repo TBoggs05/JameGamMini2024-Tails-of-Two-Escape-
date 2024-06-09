@@ -8,11 +8,15 @@ public class Momma : MonoBehaviour
     [SerializeField] private Vector2 bashForce;
     [SerializeField] private bool bashReady;
     [SerializeField] private bool bashPress;
+    public GameObject mainCamera;
     // Start is called before the first frame update
     //on Awake, check that we are actually the right cat.
      void Awake()
     {
-        
+        if (mainCamera.GetComponent<GameController>().IsBean)
+        {
+            //wrong cat.
+        }
     }
 
 

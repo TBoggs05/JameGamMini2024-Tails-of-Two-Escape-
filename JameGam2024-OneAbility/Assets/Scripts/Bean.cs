@@ -27,12 +27,23 @@ public class Bean : MonoBehaviour
     [SerializeField] private float wallJumpingDuration;
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
     [SerializeField] private float horizontalCastOffset;
+    public GameObject mainCamera;
+
+    //on Awake, check that we are actually the right cat.
+    void Awake()
+    {
+        if (!mainCamera.GetComponent<GameController>().IsBean)
+        {
+            //wrong cat.
+        }
+    }
+
 
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-        rbody.gravityScale = 1.0f;
-        maxWallJumpPressure = 10f;
+        rbody.gravityScale = 1.2f;
+        maxWallJumpPressure = 9f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         wallJumpingCounter = 0;
         gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);

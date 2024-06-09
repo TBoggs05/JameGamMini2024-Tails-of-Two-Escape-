@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,9 +55,13 @@ public class GameController : MonoBehaviour
             lives--;
         }
     }
-    public void OnSceneLoaded()
-    {
-        player.transform.position = playerStartPoint.transform.position;
+
+    public void CheckCards()
+    { 
+        foreach(GameObject c in GameObject.FindGameObjectsWithTag("Swap"))
+        {
+            c.GetComponent<Swap>().checkCard();
+        }
     }
 }
 
