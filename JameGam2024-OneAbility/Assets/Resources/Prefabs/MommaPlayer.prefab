@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 7392871339956386520}
   - component: {fileID: 944433735691075921}
   - component: {fileID: 2089642377475525045}
+  - component: {fileID: 1702741242438452433}
   m_Layer: 0
   m_Name: MommaPlayer
   m_TagString: Player
@@ -689,6 +690,7 @@ MonoBehaviour:
   rb: {fileID: 7533235279572725258}
   bashForce: {x: 0, y: 0}
   bashReady: 0
+  bashPress: 0
 --- !u!50 &7533235279572725258
 Rigidbody2D:
   serializedVersion: 4
@@ -803,6 +805,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1702741242438452433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389273308487684328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a952d11ddcd1849a7aee05a1f243ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7631961364970771440
 GameObject:
   m_ObjectHideFlags: 0

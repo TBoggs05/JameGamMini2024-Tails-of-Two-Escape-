@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public short lives;
     public GameObject player;
+    public GameObject playerStartPoint;
     void Awake()
     {
         if (instance == null)
@@ -51,6 +53,10 @@ public class GameController : MonoBehaviour
         {
             lives--;
         }
+    }
+    public void OnSceneLoaded()
+    {
+        player.transform.position = playerStartPoint.transform.position;
     }
 }
 

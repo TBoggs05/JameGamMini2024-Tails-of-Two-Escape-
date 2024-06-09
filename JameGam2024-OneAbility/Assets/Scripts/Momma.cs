@@ -9,6 +9,13 @@ public class Momma : MonoBehaviour
     [SerializeField] private bool bashReady;
     [SerializeField] private bool bashPress;
     // Start is called before the first frame update
+    //on Awake, check that we are actually the right cat.
+     void Awake()
+    {
+        
+    }
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
