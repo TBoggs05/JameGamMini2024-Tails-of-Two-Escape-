@@ -78,7 +78,7 @@ public class Swap : MonoBehaviour
     }
     IEnumerator SwapCoolDown()
     {
-        int timer = 5;
+        int timer = 3;
         while(timer > 0)
         {
             yield return new WaitForSeconds(1f);

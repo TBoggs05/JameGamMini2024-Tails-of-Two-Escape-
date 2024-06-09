@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6835941288323626960}
   - component: {fileID: 3710847125341943013}
   - component: {fileID: 1458509540709646851}
+  - component: {fileID: 3872865625647750355}
   m_Layer: 0
   m_Name: Swap
   m_TagString: Swap
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ddb465823690cca4999914f2cff927e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8a39f49ea155f4bba38a50af59e588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9001423787882154204, guid: 3deb377213f2f964d81ba80fa55a2129, type: 3}
+  player: {fileID: 0}
   camera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
   beanPrefab: {fileID: 9001423787882154204, guid: 3deb377213f2f964d81ba80fa55a2129, type: 3}
   mommaPrefab: {fileID: 7389273308487684328, guid: 463e213e286c4e64bb50b45c5635276f, type: 3}
@@ -177,3 +178,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.1789846, y: 7.569506}
   m_EdgeRadius: 0
+--- !u!114 &3872865625647750355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037938139480418213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85aebcd12ed32d14fb6494054a4b5d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.5
+  height: 0.05
