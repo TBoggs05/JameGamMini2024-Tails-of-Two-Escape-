@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 1920508032862253744}
   - component: {fileID: 2133364546865860807}
   - component: {fileID: 4012586997650138895}
-  - component: {fileID: 3750637996969589436}
+  - component: {fileID: 587067677628121644}
   m_Layer: 0
   m_Name: BeanPlayer
   m_TagString: Player
@@ -879,13 +879,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movingRight: 0
-<<<<<<< HEAD
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 690893772262242971, guid: df80b596e8014f046835e33827f144e6, type: 3}
   mainCamera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
-  animator: {fileID: 3750637996969589436}
-=======
-  mainCamera: {fileID: 0}
->>>>>>> 98c2dc3723797c9cecb4d057aaccaca53d5ced75
+  animator: {fileID: 587067677628121644}
 --- !u!50 &6202723226192423964
 Rigidbody2D:
   serializedVersion: 4
@@ -986,11 +982,8 @@ MonoBehaviour:
   wallJumpingDuration: 0
   wallJumpingPower: {x: 8, y: 16}
   horizontalCastOffset: 0
-<<<<<<< HEAD
   mainCamera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
-=======
-  mainCamera: {fileID: 0}
->>>>>>> 98c2dc3723797c9cecb4d057aaccaca53d5ced75
+  animator: {fileID: 587067677628121644}
 --- !u!114 &4012586997650138895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1027,7 @@ MonoBehaviour:
     m_Extent: {x: 2.2365003, y: 0.8729492, z: 5.820766e-11}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
---- !u!95 &3750637996969589436
+--- !u!95 &587067677628121644
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class Bean : MonoBehaviour
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
     [SerializeField] private float horizontalCastOffset;
     public GameObject mainCamera;
+    public Animator animator;
 
     //on Awake, check that we are actually the right cat.
     void Awake()
@@ -48,7 +49,7 @@ public class Bean : MonoBehaviour
         wallJumpingCounter = 0;
         gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
-    void Update(){
+    void Update() {
         WallSlide();
         //jumping code
         if (checkWall() && !IsGrounded())
@@ -72,12 +73,12 @@ public class Bean : MonoBehaviour
                     }
                 }
                 //not holding jump button
-                else if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp("space"))
+                else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp("space"))
                 {
                     //jump since no longer holding button and jump pressure exists
                     if (wallJumpPressure > 0f)
                     {
-                        
+
                         if (GetComponent<MovePlayer>().movingRight)
                         {
                             rbody.AddForce(-transform.right * wallJumpPressure, ForceMode2D.Impulse);
@@ -103,14 +104,20 @@ public class Bean : MonoBehaviour
 
 
     }
-   
+
     //checks ground for jumping
     bool checkWall()
     {
-        if (Physics2D.BoxCast(transform.position - new Vector3(horizontalCastOffset, 0f, 0f), wallBoxSize, 0, -transform.up, castDistance, wallLayer))
+        if (Physics2D.BoxCast(transform.position - new Vector3(horizontalCastOffset, 0f, 0f), wallBoxSize, 0, -transform.up, castDistance, wallLayer)) {
+
+            animator.SetBool("isGrabbingWall", true);
             return true;
-        else
+
+        }     
+            else{
+           animator.SetBool("isGrabbingWall", false);
             return false;
+            }
     }
     //draws jumping hitbox
     private void OnDrawGizmos()
