@@ -3394,9 +3394,9 @@ GameObject:
   - component: {fileID: 7182246699995509395}
   - component: {fileID: 3535637490898686228}
   - component: {fileID: -1754395381899444166}
-  - component: {fileID: 7627931220264371723}
   - component: {fileID: 6202723226192423964}
   - component: {fileID: 1920508032862253744}
+  - component: {fileID: 2133364546865860807}
   m_Layer: 0
   m_Name: BeanPlayer
   m_TagString: Player
@@ -3544,34 +3544,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movingRight: 0
---- !u!114 &7627931220264371723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9001423787882154204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe3cb55b88213c4fbd418767bb3ff9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpTime: 0
-  wallBoxSize: {x: 1.19, y: -1.15}
-  castDistance: -0.22
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  isWallSliding: 0
-  wallSlidingSpeed: 2
-  wallCheck: {fileID: 0}
-  isWallJumping: 0
-  wallJumpingDirection: 0
-  wallJumpingTime: 0.2
-  wallJumpingCounter: 0
-  wallJumpingDuration: 0
-  wallJumpingPower: {x: 8, y: 16}
-  horizontalCastOffset: 0
 --- !u!50 &6202723226192423964
 Rigidbody2D:
   serializedVersion: 4
@@ -3644,6 +3616,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.022711, y: 3.8177698}
   m_EdgeRadius: 0
+--- !u!114 &2133364546865860807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001423787882154204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe3cb55b88213c4fbd418767bb3ff9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpTime: 0
+  wallBoxSize: {x: 2.06, y: 1.17}
+  castDistance: -0.23
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  isWallSliding: 0
+  wallSlidingSpeed: 2
+  wallCheck: {fileID: 0}
+  isWallJumping: 0
+  wallJumpingDirection: 0
+  wallJumpingTime: 0.2
+  wallJumpingCounter: 0
+  wallJumpingDuration: 0
+  wallJumpingPower: {x: 8, y: 16}
+  horizontalCastOffset: 0
 --- !u!1 &9085663081546931337
 GameObject:
   m_ObjectHideFlags: 0
