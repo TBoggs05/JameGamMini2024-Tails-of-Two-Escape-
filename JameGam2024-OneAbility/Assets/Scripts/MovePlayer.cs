@@ -23,6 +23,7 @@ public class MovePlayer : MonoBehaviour
     private float horizontal;
    [SerializeField] private AudioManager audioManager;
     public GameObject mainCamera;
+    public Animator animator;
 
     //Initialize Variables before first frame.
     void Start()
@@ -34,16 +35,21 @@ public class MovePlayer : MonoBehaviour
         minJump = 2f;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     //Fixed Update to handle jumping + movement
     private void Update()
     {
-            if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))  && checkGround())
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && checkGround())
             {
             audioManager.enableFootsteps(true, gameObject.name);
+            //animate
+            animator.SetBool("Moving", true);
             }
-        else if((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) || !checkGround())
+        else
         {
             audioManager.enableFootsteps(false, gameObject.name);
+            //animate
+            animator.SetBool("Moving", false);
         }
         }
     void FixedUpdate()
