@@ -404,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 5135274460181825192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.6904051, w: 0.72342306}
-  m_LocalPosition: {x: 1.0892338, y: 1.6313629, z: 0}
+  m_LocalPosition: {x: 1.09209, y: 1.6313629, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -473,37 +473,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6804622248018745172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 66.26}
---- !u!1 &6047562521889678047
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5787203299996397325}
-  m_Layer: 0
-  m_Name: bone_25
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5787203299996397325
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047562521889678047}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7003315, w: 0.7138178}
-  m_LocalPosition: {x: 1.0920901, y: 1.5582331, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5057452476131296864}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.907}
 --- !u!1 &6594750984179741140
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +801,6 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5787203299996397325}
   - {fileID: 6804622248018745172}
   - {fileID: 870184969457057426}
   - {fileID: 8814253342446600735}
@@ -911,9 +879,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movingRight: 0
+<<<<<<< HEAD
   audioManager: {fileID: 0}
   mainCamera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
   animator: {fileID: 3750637996969589436}
+=======
+  mainCamera: {fileID: 0}
+>>>>>>> 98c2dc3723797c9cecb4d057aaccaca53d5ced75
 --- !u!50 &6202723226192423964
 Rigidbody2D:
   serializedVersion: 4
@@ -1014,7 +986,11 @@ MonoBehaviour:
   wallJumpingDuration: 0
   wallJumpingPower: {x: 8, y: 16}
   horizontalCastOffset: 0
+<<<<<<< HEAD
   mainCamera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
+=======
+  mainCamera: {fileID: 0}
+>>>>>>> 98c2dc3723797c9cecb4d057aaccaca53d5ced75
 --- !u!114 &4012586997650138895
 MonoBehaviour:
   m_ObjectHideFlags: 0
