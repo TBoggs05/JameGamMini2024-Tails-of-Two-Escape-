@@ -9,13 +9,11 @@ public class SwitchLevel : MonoBehaviour
     private string sceneName;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-        currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-
+            currentScene = SceneManager.GetActiveScene();
+            sceneName = currentScene.name;
             switch (sceneName)
-
             {
                 case "StartScreen":
                     LoaderScript.LoadLevel("Bedroom");
@@ -31,6 +29,6 @@ public class SwitchLevel : MonoBehaviour
                     break;
             }
         }
-        
+
     }
 }
