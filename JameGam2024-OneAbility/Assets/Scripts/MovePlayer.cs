@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class MovePlayer : MonoBehaviour
     public LayerMask groundLayer;
     public bool movingRight;
     private float horizontal;
-    private AudioManager audioManager;
+   [SerializeField] private AudioManager audioManager;
     public GameObject mainCamera;
+    public Animator animator;
 
     //Initialize Variables before first frame.
     void Start()
@@ -33,9 +35,25 @@ public class MovePlayer : MonoBehaviour
         minJump = 2f;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-     //Fixed Update to handle jumping + movement
-     void FixedUpdate()
+
+    //Fixed Update to handle jumping + movement
+    private void Update()
     {
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && checkGround())
+            {
+            audioManager.enableFootsteps(true, gameObject.name);
+            //animate
+            animator.SetBool("Moving", true);
+            }
+        else
+        {
+            audioManager.enableFootsteps(false, gameObject.name);
+            //animate
+            animator.SetBool("Moving", false);
+        }
+        }
+    void FixedUpdate()
+    { 
          checkMove();
         //jumping code
             if (checkGround())
@@ -97,14 +115,6 @@ public class MovePlayer : MonoBehaviour
             // spriteRenderer.flipX = true;
             flipCharacter();
             movingRight = false;
-            if (mainCamera.GetComponent<GameController>().IsBean)
-            {
-                audioManager.Play("BeanWalking");
-            }
-            else
-            {
-                audioManager.Play("MommaWalking");
-            }
             
         }
         //Move Right
@@ -117,6 +127,7 @@ public class MovePlayer : MonoBehaviour
             flipCharacter();
             movingRight = true;
         }
+
     }
     public void flipCharacter()
     {
