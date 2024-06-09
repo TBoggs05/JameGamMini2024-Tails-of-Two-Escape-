@@ -199,6 +199,7 @@ MonoBehaviour:
   mommaSprite: {fileID: -2413806693520163455, guid: f49f693cdc3515d41a8e14fb2d75d446, type: 3}
   beanSprite: {fileID: 7482667652216324306, guid: 88f074281bf612846ab40511ff85c07d, type: 3}
   rb: {fileID: 0}
+  lives: 9
 --- !u!114 &8576488093465380007
 MonoBehaviour:
   m_ObjectHideFlags: 0
