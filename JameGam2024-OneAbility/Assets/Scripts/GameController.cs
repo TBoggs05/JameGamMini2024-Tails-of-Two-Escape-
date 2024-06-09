@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public short lives;
     public GameObject player;
     public GameObject playerStartPoint;
+    public AudioManager audioManager;
     void Awake()
     {
         if (instance == null)
@@ -28,10 +29,11 @@ public class GameController : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+        audioManager = FindObjectOfType<AudioManager>();
     }
     private void Start()
     {
-        
+       
         //initially start as bean.
         lives = 9;
         IsBean = true;
@@ -68,6 +70,17 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+
+            int meowNum = Random.Range(1, 5);
+            Debug.Log("MEOW" + meowNum.ToString());
+            audioManager.Play("Meow" + meowNum.ToString());
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            //View Controls.
         }
     }
 }

@@ -967,8 +967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpTime: 0
-  wallBoxSize: {x: 2.06, y: 1.17}
-  castDistance: -0.23
+  wallBoxSize: {x: 1.47, y: 1.49}
+  castDistance: -0.53
   wallLayer:
     serializedVersion: 2
     m_Bits: 128

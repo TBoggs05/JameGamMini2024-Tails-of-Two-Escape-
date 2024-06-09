@@ -175,3 +175,4 @@ MonoBehaviour:
   lives: 0
   player: {fileID: 0}
   playerStartPoint: {fileID: 5405190799257925363, guid: 5f83e8720ab4a8e4ba136fc1deb0df68, type: 3}
+  audioManager: {fileID: 0}
