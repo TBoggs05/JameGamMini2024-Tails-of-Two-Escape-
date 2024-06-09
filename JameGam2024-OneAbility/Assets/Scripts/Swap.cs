@@ -16,6 +16,7 @@ public class Swap : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         cardRenderer = GetComponent<SpriteRenderer>();
+        camera.GetComponent<GameController>().CheckCards();
         checkCard();
     }
 
@@ -48,8 +49,7 @@ public class Swap : MonoBehaviour
             //   camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
 
             //set card to Bean Card
-            cardRenderer.sprite = beanCard;
-
+            // cardRenderer.sprite = beanCard;
         }
         else
         {
@@ -62,16 +62,9 @@ public class Swap : MonoBehaviour
             //camera.GetComponent<GameController>().swapCat(player);//tell camera who to focus on + switch flag.
 
             //set card to Momma Card
-            cardRenderer.sprite = mommaCard;
-
+            //  cardRenderer.sprite = mommaCard;
         }
-
-        /*
-         * while(animation != finished){
-         * yield return null
-         * }
-         */
-        // end animation
+        yield return new WaitForSeconds(0.1f);
         camera.GetComponent<GameController>().CheckCards();
         player.GetComponent<MovePlayer>().speed = originalSpeed;// return moving
         yield return null; //TEMP TO STOP ERROR!
@@ -88,6 +81,7 @@ public class Swap : MonoBehaviour
     }
     public void checkCard()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         if (player.name == "BeanPlayer" || player.name == "BeanPlayer(Clone)")
         {
 
