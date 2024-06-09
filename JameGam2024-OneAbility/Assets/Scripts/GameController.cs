@@ -63,6 +63,13 @@ public class GameController : MonoBehaviour
             c.GetComponent<Swap>().checkCard();
         }
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }
 
 
