@@ -48,7 +48,7 @@ MonoBehaviour:
   - name: Meow1
     clip: {fileID: 8300000, guid: 426fbd99250b35241bc1947db1712a9b, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     mute: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - name: Meow2
     clip: {fileID: 8300000, guid: c092d069a753ff542868754204e0dc53, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     mute: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   - name: Meow3
     clip: {fileID: 8300000, guid: 980382a7e8f0f6541b61d9128bd61279, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     mute: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   - name: Meow4
     clip: {fileID: 8300000, guid: cae91fe4dbdc4c3438cd22a5c53253a0, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     mute: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   - name: Meow5
     clip: {fileID: 8300000, guid: dea30360997e7cf409c6eed809eddc23, type: 3}
     volume: 1
-    pitch: 3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     mute: 0
