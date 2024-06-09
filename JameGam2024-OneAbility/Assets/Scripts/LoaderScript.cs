@@ -19,5 +19,8 @@ public static class LoaderScript
     {
         SceneManager.LoadScene(scene.ToString());
     }
-    
+    public static void LoadLevel(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
