@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
     //function to play an audio clip
     public void Play (string name)
     {
+        Debug.Log("PlaySound!");
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if (s == null)
             return;

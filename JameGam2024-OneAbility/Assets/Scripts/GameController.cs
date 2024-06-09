@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public short lives;
     public GameObject player;
+    public GameObject playerStartPoint;
     void Awake()
     {
         if (instance == null)
@@ -50,6 +53,14 @@ public class GameController : MonoBehaviour
         else
         {
             lives--;
+        }
+    }
+
+    public void CheckCards()
+    { 
+        foreach(GameObject c in GameObject.FindGameObjectsWithTag("Swap"))
+        {
+            c.GetComponent<Swap>().checkCard();
         }
     }
 }

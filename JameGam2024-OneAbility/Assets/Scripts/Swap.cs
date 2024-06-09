@@ -65,14 +65,14 @@ public class Swap : MonoBehaviour
             cardRenderer.sprite = mommaCard;
 
         }
-        
+
         /*
          * while(animation != finished){
          * yield return null
          * }
          */
         // end animation
-
+        camera.GetComponent<GameController>().CheckCards();
         player.GetComponent<MovePlayer>().speed = originalSpeed;// return moving
         yield return null; //TEMP TO STOP ERROR!
     }
@@ -86,7 +86,7 @@ public class Swap : MonoBehaviour
         }
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
-    void checkCard()
+    public void checkCard()
     {
         if (player.name == "BeanPlayer" || player.name == "BeanPlayer(Clone)")
         {

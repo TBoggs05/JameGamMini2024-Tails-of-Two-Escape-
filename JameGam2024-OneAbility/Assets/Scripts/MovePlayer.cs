@@ -20,10 +20,13 @@ public class MovePlayer : MonoBehaviour
     public LayerMask groundLayer;
     public bool movingRight;
     private float horizontal;
+    private AudioManager audioManager;
+    public GameObject mainCamera;
 
     //Initialize Variables before first frame.
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         speed = 5f;
         rbody = GetComponent<Rigidbody2D>();
         maxJumpPressure = 7f;
@@ -94,6 +97,15 @@ public class MovePlayer : MonoBehaviour
             // spriteRenderer.flipX = true;
             flipCharacter();
             movingRight = false;
+            if (mainCamera.GetComponent<GameController>().IsBean)
+            {
+                audioManager.Play("BeanWalking");
+            }
+            else
+            {
+                audioManager.Play("MommaWalking");
+            }
+            
         }
         //Move Right
         if (Input.GetKey(KeyCode.D)) 
