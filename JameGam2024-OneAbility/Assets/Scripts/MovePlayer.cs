@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -20,19 +21,41 @@ public class MovePlayer : MonoBehaviour
     public LayerMask groundLayer;
     public bool movingRight;
     private float horizontal;
+   [SerializeField] private AudioManager audioManager;
+    public GameObject mainCamera;
+    public Animator animator;
 
     //Initialize Variables before first frame.
     void Start()
     {
+        if(mainCamera == null)
+        mainCamera = GameObject.Find("Main Camera");
+        audioManager = FindObjectOfType<AudioManager>();
         speed = 5f;
         rbody = GetComponent<Rigidbody2D>();
         maxJumpPressure = 7f;
         minJump = 2f;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-     //Fixed Update to handle jumping + movement
-     void FixedUpdate()
+
+    //Fixed Update to handle jumping + movement
+    private void Update()
     {
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && checkGround())
+            {
+            audioManager.enableFootsteps(true, gameObject.name);
+            //animate
+            animator.SetBool("Moving", true);
+            }
+        else
+        {
+            audioManager.enableFootsteps(false, gameObject.name);
+            //animate
+            animator.SetBool("Moving", false);
+        }
+        }
+    void FixedUpdate()
+    { 
          checkMove();
         //jumping code
             if (checkGround())
@@ -40,6 +63,7 @@ public class MovePlayer : MonoBehaviour
                 //holding jump butotn
                 if (Input.GetKey(KeyCode.W) || Input.GetKey("space"))
                 {
+                animator.SetBool("Jumpstart", true);
                     if (jumpPressure < maxJumpPressure)
                     {
                         jumpPressure += Time.deltaTime * 10f;
@@ -56,7 +80,9 @@ public class MovePlayer : MonoBehaviour
                     //jump since no longer holding button and jump pressure exists
                     if(jumpPressure > 0f)
                     {
-                        Debug.Log(jumpPressure);
+                    animator.SetBool("Jumpstart", false);
+                    animator.SetBool("Jumping", true);
+                    Debug.Log(jumpPressure);
                        
                         jumpPressure = jumpPressure + minJump;
                         rbody.velocity = new Vector3(0f,jumpPressure,0f);
@@ -73,9 +99,19 @@ public class MovePlayer : MonoBehaviour
    public bool checkGround()
     {
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("Jumping", false);
             return true;
+        }
+            
         else
+        {
+            animator.SetBool("isGrounded", false);
             return false;
+        }
+       
+
     }
     //draws jumping hitbox
     private void OnDrawGizmos()
@@ -94,6 +130,7 @@ public class MovePlayer : MonoBehaviour
             // spriteRenderer.flipX = true;
             flipCharacter();
             movingRight = false;
+            
         }
         //Move Right
         if (Input.GetKey(KeyCode.D)) 
@@ -105,6 +142,7 @@ public class MovePlayer : MonoBehaviour
             flipCharacter();
             movingRight = true;
         }
+
     }
     public void flipCharacter()
     {

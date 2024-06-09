@@ -44,4 +44,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35894e6f4c9c2bd43add6198f25736ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  Sounds:
+  - name: Meow1
+    clip: {fileID: 8300000, guid: 426fbd99250b35241bc1947db1712a9b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    mute: 0
+    playOnAwake: 0
+  - name: Meow2
+    clip: {fileID: 8300000, guid: c092d069a753ff542868754204e0dc53, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    mute: 0
+    playOnAwake: 0
+  - name: Meow3
+    clip: {fileID: 8300000, guid: 980382a7e8f0f6541b61d9128bd61279, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    mute: 0
+    playOnAwake: 0
+  - name: Meow4
+    clip: {fileID: 8300000, guid: cae91fe4dbdc4c3438cd22a5c53253a0, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    mute: 0
+    playOnAwake: 0
+  - name: Meow5
+    clip: {fileID: 8300000, guid: dea30360997e7cf409c6eed809eddc23, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    mute: 0
+    playOnAwake: 0
+  - name: Bedroom
+    clip: {fileID: 8300000, guid: 1af343cfd1d3b704fa478c173d7b95e3, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    mute: 0
+    playOnAwake: 0
+  - name: Bathroom
+    clip: {fileID: 8300000, guid: 3a8f381f17bf6774aafad056407f78b2, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    mute: 0
+    playOnAwake: 0
+  - name: Attic
+    clip: {fileID: 8300000, guid: 51256e40357b93c4ebfdd78fcb88fc17, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    mute: 0
+    playOnAwake: 0
+  - name: StartScreen
+    clip: {fileID: 8300000, guid: ac095d0ea01185e49a8031fd88293f50, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    mute: 0
+    playOnAwake: 0

@@ -8,9 +8,22 @@ public class Momma : MonoBehaviour
     [SerializeField] private Vector2 bashForce;
     [SerializeField] private bool bashReady;
     [SerializeField] private bool bashPress;
+    public GameObject mainCamera;
+    public Animator animator;
     // Start is called before the first frame update
+    //on Awake, check that we are actually the right cat.
+     void Awake()
+    {
+        if (mainCamera.GetComponent<GameController>().IsBean)
+        {
+            //wrong cat.
+        }
+    }
+
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2.0f;
         bashReady = true;
@@ -34,6 +47,7 @@ public class Momma : MonoBehaviour
             {
                 if (bashReady)
                 {
+                    animator.SetBool("Bash", true);
                     bashReady = false;
                     StartCoroutine(bashTimer());
                     rb.drag = 10f;
@@ -55,6 +69,7 @@ public class Momma : MonoBehaviour
                 }
                 else
                 {
+                    animator.SetBool("Bash", false);
                     Debug.Log("No Bash!");
                 }
             }
@@ -69,6 +84,7 @@ public class Momma : MonoBehaviour
             timer--;
             if(timer == 2)
             {
+                animator.SetBool("Bash", false);
                 rb.gravityScale -= 4f;
                 rb.drag = 0f;
             }

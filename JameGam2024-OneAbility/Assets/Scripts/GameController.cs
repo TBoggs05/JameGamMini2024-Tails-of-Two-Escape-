@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public short lives;
     public GameObject player;
+    public GameObject playerStartPoint;
+    public AudioManager audioManager;
     void Awake()
     {
         if (instance == null)
@@ -25,10 +29,11 @@ public class GameController : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+        audioManager = FindObjectOfType<AudioManager>();
     }
     private void Start()
     {
-        
+       
         //initially start as bean.
         lives = 9;
         IsBean = true;
@@ -50,6 +55,32 @@ public class GameController : MonoBehaviour
         else
         {
             lives--;
+        }
+    }
+
+    public void CheckCards()
+    { 
+        foreach(GameObject c in GameObject.FindGameObjectsWithTag("Swap"))
+        {
+            c.GetComponent<Swap>().checkCard();
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+
+            int meowNum = Random.Range(1, 5);
+            Debug.Log("MEOW" + meowNum.ToString());
+            audioManager.Play("Meow" + meowNum.ToString());
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            //View Controls.
         }
     }
 }

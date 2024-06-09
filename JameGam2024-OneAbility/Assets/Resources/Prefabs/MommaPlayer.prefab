@@ -689,6 +689,8 @@ MonoBehaviour:
   rb: {fileID: 7533235279572725258}
   bashForce: {x: 0, y: 0}
   bashReady: 0
+  bashPress: 0
+  mainCamera: {fileID: 7015193677348094296, guid: 0cac6ffee13b90a49931cf84a2e350bc, type: 3}
 --- !u!50 &7533235279572725258
 Rigidbody2D:
   serializedVersion: 4
@@ -782,6 +784,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movingRight: 0
+  audioManager: {fileID: 0}
+  mainCamera: {fileID: 0}
+  animator: {fileID: 2089642377475525045}
 --- !u!95 &2089642377475525045
 Animator:
   serializedVersion: 5
