@@ -59,33 +59,5 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
-    public void enableFootsteps(bool x, string catName)
-    {
-        Sound s;
-            //choosing sound.
-            if(catName == "MommaPlayer" || catName == "MommaPlayer(Clone)")
-            {
-                 s = Array.Find(Sounds, sounds => sounds.name == "MommaWalking");
-            }
-            else
-            {
-                 s = Array.Find(Sounds, sounds => sounds.name == "BeanWalking");
-            }
-        //if enabling footsteps
-        if (x)
-        {
-            if (s != null)
-            {
-                s.source.Play();
-            }
-        }
-        //if disabling footsteps
-        else
-        {
-            if(s != null)
-            {
-                s.source.Stop();
-            }
-        }
-    }
+    
 }
