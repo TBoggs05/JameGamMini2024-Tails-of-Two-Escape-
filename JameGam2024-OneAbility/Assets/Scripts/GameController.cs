@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject playerStartPoint;
     public AudioManager audioManager;
+    public GameObject controlScreen;
     void Awake()
     {
         if (instance == null)
@@ -59,10 +60,11 @@ public class GameController : MonoBehaviour
     }
 
     public void CheckCards()
-    { 
-        foreach(GameObject c in GameObject.FindGameObjectsWithTag("Swap"))
+    {
+        GameObject[] c = GameObject.FindGameObjectsWithTag("Swap");
+        foreach(GameObject g in c)
         {
-            c.GetComponent<Swap>().checkCard();
+            g.GetComponent<Swap>().checkCard();
         }
     }
     private void Update()
@@ -81,6 +83,11 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.X))
         {
             //View Controls.
+            controlScreen.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            controlScreen.SetActive(false);
         }
     }
 }
