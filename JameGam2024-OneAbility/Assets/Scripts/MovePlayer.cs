@@ -24,7 +24,6 @@ public class MovePlayer : MonoBehaviour
    [SerializeField] private AudioManager audioManager;
     public GameObject mainCamera;
     public Animator animator;
-
     //Initialize Variables before first frame.
     void Start()
     {
@@ -43,13 +42,11 @@ public class MovePlayer : MonoBehaviour
     {
             if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && checkGround())
             {
-            audioManager.enableFootsteps(true, gameObject.name);
             //animate
             animator.SetBool("Moving", true);
             }
         else
         {
-            audioManager.enableFootsteps(false, gameObject.name);
             //animate
             animator.SetBool("Moving", false);
         }
@@ -130,7 +127,7 @@ public class MovePlayer : MonoBehaviour
             // spriteRenderer.flipX = true;
             flipCharacter();
             movingRight = false;
-            
+           
         }
         //Move Right
         if (Input.GetKey(KeyCode.D)) 

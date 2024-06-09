@@ -87,7 +87,7 @@ MonoBehaviour:
     playOnAwake: 0
   - name: Bedroom
     clip: {fileID: 8300000, guid: 1af343cfd1d3b704fa478c173d7b95e3, type: 3}
-    volume: 0.4
+    volume: 0.085
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -95,7 +95,7 @@ MonoBehaviour:
     playOnAwake: 0
   - name: Bathroom
     clip: {fileID: 8300000, guid: 3a8f381f17bf6774aafad056407f78b2, type: 3}
-    volume: 0.4
+    volume: 0.085
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
     playOnAwake: 0
   - name: Attic
     clip: {fileID: 8300000, guid: 51256e40357b93c4ebfdd78fcb88fc17, type: 3}
-    volume: 0.4
+    volume: 0.085
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
     playOnAwake: 0
   - name: StartScreen
     clip: {fileID: 8300000, guid: ac095d0ea01185e49a8031fd88293f50, type: 3}
-    volume: 0.4
+    volume: 0.085
     pitch: 1
     source: {fileID: 0}
     loop: 1

@@ -29,6 +29,7 @@ public class Bean : MonoBehaviour
     [SerializeField] private float horizontalCastOffset;
     public GameObject mainCamera;
     public Animator animator;
+    public AudioSource beanStep;
 
     //on Awake, check that we are actually the right cat.
     void Awake()
@@ -50,6 +51,22 @@ public class Bean : MonoBehaviour
         gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
     void Update() {
+
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            if (!beanStep.isPlaying)
+            {
+                beanStep.Play();
+            }
+        }
+        else
+        {
+            if (beanStep.isPlaying)
+            {
+                beanStep.Stop();
+            }
+        }
+
         WallSlide();
         //jumping code
         if (checkWall() && !IsGrounded())

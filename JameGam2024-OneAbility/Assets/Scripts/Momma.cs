@@ -10,6 +10,8 @@ public class Momma : MonoBehaviour
     [SerializeField] private bool bashPress;
     public GameObject mainCamera;
     public Animator animator;
+    public AudioSource mommaStep;
+    public AudioSource mommaBashSound;
     // Start is called before the first frame update
     //on Awake, check that we are actually the right cat.
      void Awake()
@@ -34,6 +36,21 @@ public class Momma : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             bashPress = true;
+            
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            if (!mommaStep.isPlaying)
+            {
+                mommaStep.Play();
+            }
+        }
+        else
+        {
+            if (mommaStep.isPlaying)
+            {
+                mommaStep.Stop();
+            }
         }
     }
     // Update is called once per frame
@@ -41,6 +58,7 @@ public class Momma : MonoBehaviour
     {
         if (bashPress)
         {
+            
             bashPress = false;
             Debug.Log("Bash Attempt");
             if (GetComponent<MovePlayer>().checkGround())
@@ -49,6 +67,7 @@ public class Momma : MonoBehaviour
                 {
                     animator.SetBool("Bash", true);
                     bashReady = false;
+                    mommaBashSound.Play();
                     StartCoroutine(bashTimer());
                     rb.drag = 10f;
                     rb.gravityScale += 4f;
