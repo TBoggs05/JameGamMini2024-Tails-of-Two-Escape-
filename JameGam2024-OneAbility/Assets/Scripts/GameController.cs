@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public GameObject playerStartPoint;
     public AudioManager audioManager;
     public GameObject controlScreen;
+
     void Awake()
     {
         if (instance == null)

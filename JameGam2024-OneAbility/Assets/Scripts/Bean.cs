@@ -52,7 +52,7 @@ public class Bean : MonoBehaviour
     }
     void Update() {
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && GetComponent<MovePlayer>().checkGround())
         {
             if (!beanStep.isPlaying)
             {

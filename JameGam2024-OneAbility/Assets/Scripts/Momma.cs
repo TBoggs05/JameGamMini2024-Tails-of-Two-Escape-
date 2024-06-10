@@ -38,7 +38,7 @@ public class Momma : MonoBehaviour
             bashPress = true;
             
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && GetComponent<MovePlayer>().checkGround())
         {
             if (!mommaStep.isPlaying)
             {
